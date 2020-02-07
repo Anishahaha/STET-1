@@ -11,13 +11,26 @@ console.log(kkk)
      admit: function (){
         pdfTemplate({
             template: 'example.pdf',
-            output: 'output.pdf',
+            output: `${kkk.roll_no}.pdf`,
             data: {
-              name: kkk.name,
-              age: kkk.age,
-              email: kkk.email,
-              birthdate: kkk.birthdate,
-              roll_no: kkk.roll_no
+                "ciname": kkk.cinname,
+                "cmname": kkk.cmname,
+                "cfname": kkk.cfname,
+                "cemp": kkk.cemp,
+                "caddress": kkk.caddress,
+                "clang": kkk.clang,
+                "caadhar": kkk.caadhar,
+                "cgender": kkk.cgender,
+                "cemail": kkk.cemail,
+                "cmobile": kkk.cmobile,
+                "cseclang": kkk.cseclang,
+                "cdob": kkk.cdob,
+                "cecp": kkk.cecp,
+                "cqd": kkk.cqd,
+                "cflang": kkk.cflang,
+                "ccat": kkk.ccat,
+                "cstatus": kkk.cstatus,
+                "crelax": kkk.crelax
             }
             
           }).then((res) => {
@@ -31,4 +44,3 @@ console.log(kkk)
           db.updateDb();
      }
  }
-
