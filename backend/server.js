@@ -3,6 +3,8 @@ const app = express();
 const fs = require('fs')
 const path = require('path');
 const multer = require('multer');
+const pdfTemplate = require('pdf-template');
+const ag = require('./admitcard');
 app.use(express.static(__dirname));
 
 
@@ -14,14 +16,19 @@ app.set('port', PORT);
 app.set('env', NODE_ENV);
 
 //////////////////////////////////////////////////////////////////////////////////
-console.log('req.file >>>', req.file); // eslint-disable-line
-//file fetched from input(image)
- sampleFile = req.file
-//path of file
- uploadPath =  sampleFile.path;
- 
+app.post('/', upload.single('sampleFile'), function (req, res, next){
+    console.log('req.file >>>', req.file); // eslint-disable-line
+    //file fetched from input(image)
+     sampleFile = req.file
+    //path of file
+     uploadPath =  sampleFile.path;
+    
+
+})
+
 //////////////////////////////////////////////////////////////////////////////////
 
+ag.admit();
 
 //Server running
 app.listen(PORT , function() {
