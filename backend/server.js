@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path');
 const multer = require('multer');
 const pdfTemplate = require('pdf-template');
-const ag = require('./admitcard');
+//const ag = require('./admitcard');
 app.use(express.static(__dirname));
 
 
@@ -17,18 +17,34 @@ app.set('env', NODE_ENV);
 
 //////////////////////////////////////////////////////////////////////////////////
 app.post('/', upload.single('sampleFile'), function (req, res, next){
-    console.log('req.file >>>', req.file); // eslint-disable-line
-    //file fetched from input(image)
-     sampleFile = req.file
-    //path of file
-     uploadPath =  sampleFile.path;
-    
 
-})
+    if (!req.file || Object.keys(req.file).length === 0) {
+        console.log("No File Uploaded")
+        
+      }
+    // console.log('req.file >>>', req.file); // eslint-disable-line
+    // //file fetched from input(image)
+    //  sampleFile = req.file
+    // //path of file
+    //  uploadPath =  sampleFile.path;
+    //  console.log("hiiiiiiiiiiiiii")
+    //  fs.writeFile(JSON.stringify(req.body),'admitcard',function(){
+    //    // ag.admit();
+    //         // send a html file saying registration succesful.
+
+     })
+    
+	 console.log("hiii")
+
+
 
 //////////////////////////////////////////////////////////////////////////////////
 
-ag.admit();
+//<<<<<<< HEAD
+////ag.admit();
+//====/===
+///
+//>>>>>>> 678befdbb376dbf954bfc788022ec22d79d0f3b2
 
 //Server running
 app.listen(PORT , function() {
