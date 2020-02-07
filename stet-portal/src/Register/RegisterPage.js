@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'tachyons';
 import axios from 'axios';
 
+
 class RegisterForm extends React.Component
 {
 	constructor()
@@ -10,6 +11,7 @@ class RegisterForm extends React.Component
 		super();
 		this.state = {
 
+				rtype:'',
 			    cname: '',
 			    cmname: '',
 			    cfname: '',
@@ -65,9 +67,11 @@ class RegisterForm extends React.Component
 
 	
 	handleSubmit = (event) => {
+		event.preventDefault();
+		this.setState({rtype: 'register'});
 		console.log("smd")
 		let newObj = Object.assign({},this.state);
-		axios.post('http://localhost:8000/dat',newObj).then(response => {console.log("response.data");});
+		axios.post('http://localhost:8000/dat',newObj).then(response => {console.log(response.data);});
 	};
 	render()
 	{
@@ -77,6 +81,7 @@ class RegisterForm extends React.Component
 			<hr/>
 
 			<h1>Register</h1>
+			<article className="mw8 center bg-white tc br3 shadow-3 pa3 pa4-ns mv3 ba b--blue">
 			<form onSubmit={ this.handleSubmit }>
 				<div className="ma2"><label>Candidate's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeCandidateName}/><br/></div>
 				<div className="ma2"><label>Mother's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeMotherName}/><br/></div>
@@ -232,6 +237,7 @@ class RegisterForm extends React.Component
 				<br/>
 				</div>
 			</form>
+			</article>
 		</div>
 		);	
 	}
