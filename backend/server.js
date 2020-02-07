@@ -16,7 +16,7 @@ app.set('port', PORT);
 app.set('env', NODE_ENV);
 
 //////////////////////////////////////////////////////////////////////////////////
-app.post('/', upload.single('sampleFile'), function (req, res, next){
+app.post('/dat', upload.single('sampleFile'), function (req, res, next){
 
     if (!req.file || Object.keys(req.file).length === 0) {
         console.log("No File Uploaded")

@@ -64,10 +64,10 @@ class RegisterForm extends React.Component
 	onChangeConfirmPassword = (event) => {this.setState({cconfirmpass: event.target.value});};
 
 
-	onSubmitHandler = () => {
+	handleSubmit = () => {
 
 		let newObj = Object.assign({},this.state);
-		axios.post('http://127.0.0.1:8000',newObj).then(response => {console.log(response.data);});
+		axios.post('http://127.0.0.1:8000/dat',newObj).then(response => {console.log("response.data");});
 	};
 	render()
 	{
@@ -96,8 +96,8 @@ class RegisterForm extends React.Component
 					</div> 
 				<br/>
 				<div className="tc dib">
-					    <label for="comment" class="f6 b db mb2">Address: </label>
-    					<textarea id="comment" name="comment" class="db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2" aria-describedby="comment-desc" onChange={this.onChangeAddress}>
+					    <label htmlFor="comment" className="f6 b db mb2">Address: </label>
+    					<textarea id="comment" name="comment" className="db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2" aria-describedby="comment-desc" onChange={this.onChangeAddress}>
     					</textarea>
     			</div>
 				<br/>
@@ -155,7 +155,7 @@ class RegisterForm extends React.Component
 					</div>
 
 				<div className="ma2">				
-				<label for="start">Date of Birth:</label>
+				<label htmlFor="start">Date of Birth:</label>
 				<input type="date" id="dob" name="" min="1970-01-01" max="2018-12-31" onChange={this.onChangeDOB}/>
 				<br/>
 				</div>
@@ -215,18 +215,18 @@ class RegisterForm extends React.Component
 				</div>
 
 				<div className="ma2 tc">				
-				<label for="password" class="f6 b dib mb2">Create Password:</label>
-			    <input class="input-reset ba b--black-20 pa2 mb2 dib" type="password" id="password" aria-describedby="password-desc" onChange={this.onChangeNewPassword}/>
+				<label htmlFor="password" className="f6 b dib mb2">Create Password:</label>
+			    <input className="input-reset ba b--black-20 pa2 mb2 dib" type="password" id="password" aria-describedby="password-desc" onChange={this.onChangeNewPassword}/>
 			    </div>
 
 
 				<div className="ma2">				
-			    <label for="password" class="f6 b dib mb2">Confirm Password :</label>
-			    <input class="input-reset ba b--black-20 pa2 mb2 dib" type="password" id="password" aria-describedby="password-desc" onChange={this.onChangeConfirmPassword}/>
+			    <label htmlFor="password" className="f6 b dib mb2">Confirm Password :</label>
+			    <input className="input-reset ba b--black-20 pa2 mb2 dib" type="password" id="password" aria-describedby="password-desc" onChange={this.onChangeConfirmPassword}/>
 				</div>
 
 				<div className="ma2">				
-				<button type="submit">Submit</button>
+				<button type="submit" onSubmit = {this.handleSubmit} >Submit</button>
 				</div>
 				<br/>
 			</form>
