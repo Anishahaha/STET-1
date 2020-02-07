@@ -23,12 +23,13 @@ app.post('/', upload.single('sampleFile'), function (req, res, next){
     //path of file
      uploadPath =  sampleFile.path;
     
+	 console.log("hiii")
 
 })
 
 //////////////////////////////////////////////////////////////////////////////////
 
-ag.admit();
+//ag.admit();
 
 //Server running
 app.listen(PORT , function() {
