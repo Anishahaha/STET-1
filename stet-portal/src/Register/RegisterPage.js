@@ -63,11 +63,11 @@ class RegisterForm extends React.Component
 	onChangeNewPassword = (event) => {this.setState({cnewpass: event.target.value});};
 	onChangeConfirmPassword = (event) => {this.setState({cconfirmpass: event.target.value});};
 
-
-	handleSubmit = () => {
-
+	
+	handleSubmit = (event) => {
+		console.log("smd")
 		let newObj = Object.assign({},this.state);
-		axios.post('http://127.0.0.1:8000/dat',newObj).then(response => {console.log("response.data");});
+		axios.post('http://localhost:8000/dat',newObj).then(response => {console.log("response.data");});
 	};
 	render()
 	{
@@ -77,7 +77,7 @@ class RegisterForm extends React.Component
 			<hr/>
 
 			<h1>Register</h1>
-			<form>
+			<form onSubmit={ this.handleSubmit }>
 				<div className="ma2"><label>Candidate's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeCandidateName}/><br/></div>
 				<div className="ma2"><label>Mother's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeMotherName}/><br/></div>
 				<div className="ma2"><label>Father's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeFatherName}/><br/></div>
@@ -104,7 +104,7 @@ class RegisterForm extends React.Component
 				
 				<div className="ma2">				
 				<label>Language: </label>
-					<select onChange = {this.onChangeLanguage}>
+					<select onChange={this.onChangeLanguage}>
 					 <option value="hindi">Hindi</option>
 					  <option value="Nepali">Nepali</option>
 					  <option value="Sikkimese">Sikkimese</option>
@@ -122,7 +122,7 @@ class RegisterForm extends React.Component
 
 				<div className="ma2">				
 				<label>Gender: </label>
-				<select onChange = {this.onChangeGender}>
+				<select onChange={this.onChangeGender}>
 					 <option value="Male">Male</option>
 					  <option value="Female">Female</option>
 					  <option value="Other">Other</option>
@@ -226,7 +226,7 @@ class RegisterForm extends React.Component
 				</div>
 
 				<div className="ma2">				
-				<button type="submit" onSubmit = {this.handleSubmit} >Submit</button>
+				<button type="submit" >Submit</button>
 				</div>
 				<br/>
 			</form>

@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path');
 const multer = require('multer');
 const pdfTemplate = require('pdf-template');
+var cors = require('cors')
 //const ag = require('./admitcard');
 app.use(express.static(__dirname));
 
@@ -15,6 +16,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 app.set('port', PORT);
 app.set('env', NODE_ENV);
 
+app.use(cors())
 //////////////////////////////////////////////////////////////////////////////////
 app.post('/dat', upload.single('sampleFile'), function (req, res, next){
 
