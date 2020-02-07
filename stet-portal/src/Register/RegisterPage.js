@@ -28,7 +28,7 @@ class RegisterForm extends React.Component
 			    ccategory: '',
 			    cexamstatus: '',
 			    crelaxation: '',
-			    cphoto: '',
+			    cfile: '',
 			    cnewpass: '',
 			    cconfirmpass: ''
 	
@@ -44,7 +44,7 @@ class RegisterForm extends React.Component
 	onChangeCandidateName = (event) => { this.setState({ cname: event.target.value});};
 	onChangeFatherName = (event) => {this.setState({cfname: event.target.value});};
 	onChangeMotherName = (event) => {this.setState({cmname: event.target.value});};
-	onChangePhotoUpload = (event) => {this.setState({cphoto: event.target.value});};
+	onChangeFileUpload = (event) => {this.setState({cfile: event.target.value});};
 	onChangeEmploymentStatus = (event) => {this.setState({cempstatus: event.target.value});};
 	onChangeAddress = (event) => {this.setState({caddr: event.target.value});};
 	onChangeLanguage = (event) => {this.setState({clang: event.target.value});};
@@ -82,11 +82,6 @@ class RegisterForm extends React.Component
 				<div className="ma2"><label>Mother's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeMotherName}/><br/></div>
 				<div className="ma2"><label>Father's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeFatherName}/><br/></div>
 
-				<div className="ma2">
-					<label><strong>Upload passport size photo</strong></label>
-					<input type="file" name="fileToUpload" id="fileToUpload" onChange={this.onChangePhotoUpload}/>
-				<br/>
-				</div>
 
 				<div className="ma2"><label>Employment Status: </label>
 					 <select onChange={this.onChangeEmploymentStatus}>
@@ -225,10 +220,17 @@ class RegisterForm extends React.Component
 			    <input className="input-reset ba b--black-20 pa2 mb2 dib" type="password" id="password" aria-describedby="password-desc" onChange={this.onChangeConfirmPassword}/>
 				</div>
 
+
+				<div className="ma2">
+					<label><strong>Upload document.</strong></label>
+					<input type="file" name="fileToUpload" id="fileToUpload" onChange={this.onChangeFileUpload}/>
+				<br/>
+
 				<div className="ma2">				
 				<button type="submit" >Submit</button>
 				</div>
 				<br/>
+				</div>
 			</form>
 		</div>
 		);	

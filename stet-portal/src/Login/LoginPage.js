@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Username from './Username.js';
-import Password from './Password.js';
+
 
 
 class LoginForm extends React.Component
@@ -9,19 +8,37 @@ class LoginForm extends React.Component
 	constructor(props)
 	{
 		super(props);
+		this.state = {
+
+			password: '',
+			username: ''
+
+		};
+	}
+	onPasswordChange = (event) => 
+	{
+		this.setState({password: event.target.value})
+	}
+	onUsernameChange = (event) => {
+
+		this.setState({username : event.target.value});
+	}
+	onSubmit = (event) => {
+
+		// code for things to do on submit.
 	}
 	render()
 	{
 		return (
 
-				<div className ="tc">
+				<div className ="tc bg-light-blue ba b--black">
 				<hr/>
-						<h1>Login</h1>
-						<label>Email:</label>
-						<Username />
-						<label>Password</label>
-						<Password />
-						<button type="submit">login</button>
+						<h2>Login</h2>
+						<label className="tc ma2">Enter Username</label>
+						<div><input type="text" onChange={this.onUsernameChange}/></div>
+						<label className="tc ma2">Enter Password</label>
+						<div><input type="password" onChange={this.onPasswordChange}/></div>
+						<button onClick={this.onSubmit} className="ma2">Login</button>
 				<hr/>
 				</div>
 			);

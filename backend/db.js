@@ -3,11 +3,11 @@ const getData = require("./app.js");
 const { Pool, Client } = require("pg");
 
 const pool = new Pool({
-  user: "postgres",
+  user: "sai",
   host: "localhost",
   database: "student",
-  password: "",
-  port: "5432"
+  password: "qazwsx123",
+  port: "8000"
 });
 
 var cd = getData();

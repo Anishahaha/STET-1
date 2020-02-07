@@ -12,7 +12,8 @@ app.use(express.static(__dirname));
 
 var upload = multer({ dest: 'uploads/' })
 
-const PORT = process.env.PORT || 8000;
+// const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 app.set('port', PORT);
 app.set('env', NODE_ENV);
