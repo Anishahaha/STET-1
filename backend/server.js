@@ -4,6 +4,8 @@ const fs = require('fs')
 const path = require('path');
 const multer = require('multer');
 const pdfTemplate = require('pdf-template');
+var bodyParser = require('body-parser')
+var cors = require('cors')
 //const ag = require('./admitcard');
 app.use(express.static(__dirname));
 
@@ -15,11 +17,14 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 app.set('port', PORT);
 app.set('env', NODE_ENV);
 
+app.use(cors())
+app.use(bodyParser());
 //////////////////////////////////////////////////////////////////////////////////
-app.post('/', upload.single('sampleFile'), function (req, res, next){
+app.post('/dat', upload.single('sampleFile'), function (req, res, next){
 
     if (!req.file || Object.keys(req.file).length === 0) {
-        console.log("No File Uploaded")
+        console.log("lelmao")
+        console.log(req.body)
         
       }
     // console.log('req.file >>>', req.file); // eslint-disable-line
