@@ -39,11 +39,11 @@ app.post('/', upload.single('sampleFile'), function (req, res, next){
 
 //////////////////////////////////////////////////////////////////////////////////
 
-<<<<<<< HEAD
-//ag.admit();
-=======
-
->>>>>>> 678befdbb376dbf954bfc788022ec22d79d0f3b2
+//<<<<<<< HEAD
+////ag.admit();
+//====/===
+///
+//>>>>>>> 678befdbb376dbf954bfc788022ec22d79d0f3b2
 
 //Server running
 app.listen(PORT , function() {

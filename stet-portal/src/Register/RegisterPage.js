@@ -34,6 +34,9 @@ class RegisterForm extends React.Component
 	
 
 		};
+
+		
+
 	}
 
 	//there are 21 state update handlers.
@@ -57,8 +60,15 @@ class RegisterForm extends React.Component
 	onChangeCategory = (event) => {this.setState({ccategory: event.target.value});};
 	onChangeExamStatus = (event) => {this.setState({cexamstatus: event.target.value});};
 	onChangeRelaxation = (event) => {this.setState({crelaxation: event.target.value});};
-	onChangeNewPassword = (eventevent) => {this.setState({cnewpass: event.target.value});};
+	onChangeNewPassword = (event) => {this.setState({cnewpass: event.target.value});};
 	onChangeConfirmPassword = (event) => {this.setState({cconfirmpass: event.target.value});};
+
+
+	onSubmitHandler = () => {
+
+		let newObj = Object.assign({},this.state);
+		axios.post('http://127.0.0.1:8000',newObj).then(response => {console.log(response.data);});
+	};
 	render()
 	{
 		return(
