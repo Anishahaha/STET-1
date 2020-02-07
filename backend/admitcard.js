@@ -26,7 +26,13 @@ console.log(kkk)
             console.error(err)
           })
         
+<<<<<<< HEAD
+        
+    }
+}
+=======
       //push the json object to database
           db.updateDb();
      }
  }
+>>>>>>> 678befdbb376dbf954bfc788022ec22d79d0f3b2
