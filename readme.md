@@ -1,0 +1,1 @@
+Automatic Registration portal for Sikkim Government STET(STATE TEACHER ELIGIBILITY TEST)
