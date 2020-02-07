@@ -23,17 +23,22 @@ class LoginForm extends React.Component
 
 		this.setState({username : event.target.value});
 	}
+	onSubmit = (event) => {
+
+		// code for things to do on submit.
+	}
 	render()
 	{
 		return (
 
-				<div className ="tc bg-light-green ba b--black">
+				<div className ="tc bg-light-blue ba b--black">
 				<hr/>
 						<h2>Login</h2>
-						<label className="tc">Enter Username</label>
+						<label className="tc ma2">Enter Username</label>
 						<div><input type="text" onChange={this.onUsernameChange}/></div>
-						<label className="tc">Enter Password</label>
+						<label className="tc ma2">Enter Password</label>
 						<div><input type="password" onChange={this.onPasswordChange}/></div>
+						<button onClick={this.onSubmit} className="ma2">Login</button>
 				<hr/>
 				</div>
 			);

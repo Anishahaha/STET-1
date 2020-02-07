@@ -220,15 +220,15 @@ class RegisterForm extends React.Component
 			    <input className="input-reset ba b--black-20 pa2 mb2 dib" type="password" id="password" aria-describedby="password-desc" onChange={this.onChangeConfirmPassword}/>
 				</div>
 
-				<div className="ma2">				
-				<button type="submit" >Submit</button>
-				</div>
-				<br/>
-
 
 				<div className="ma2">
 					<label><strong>Upload document.</strong></label>
 					<input type="file" name="fileToUpload" id="fileToUpload" onChange={this.onChangeFileUpload}/>
+				<br/>
+
+				<div className="ma2">				
+				<button type="submit" >Submit</button>
+				</div>
 				<br/>
 				</div>
 			</form>
