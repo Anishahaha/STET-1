@@ -30,7 +30,7 @@ class RegisterForm extends React.Component
 					</select>
 					</div> 
 				<br/>
-				<div className="tc">
+				<div className="tc dib">
 					    <label for="comment" class="f6 b db mb2">Address: </label>
     					<textarea id="comment" name="comment" class="db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2" aria-describedby="comment-desc">
     					</textarea>
@@ -149,15 +149,15 @@ class RegisterForm extends React.Component
 				<br/>
 				</div>
 
-				<div className="ma2">				
-				<label for="password" class="f6 b db mb2">Create Password</label>
-			    <input class="input-reset ba b--black-20 pa2 mb2 db w-10" type="password" id="password" aria-describedby="password-desc"/>
+				<div className="ma2 tc">				
+				<label for="password" class="f6 b dib mb2">Create Password:</label>
+			    <input class="input-reset ba b--black-20 pa2 mb2 dib w-10" type="password" id="password" aria-describedby="password-desc"/>
 			    </div>
 
 
 				<div className="ma2">				
-			    <label for="password" class="f6 b db mb2">Confirm Password</label>
-			    <input class="input-reset ba b--black-20 pa2 mb2 db w-10" type="password" id="password" aria-describedby="password-desc"/>
+			    <label for="password" class="f6 b dib mb2">Confirm Password :</label>
+			    <input class="input-reset ba b--black-20 pa2 mb2 dib w-10" type="password" id="password" aria-describedby="password-desc"/>
 				</div>
 
 				<div className="ma2">				
