@@ -22,13 +22,17 @@ app.post('/', upload.single('sampleFile'), function (req, res, next){
      sampleFile = req.file
     //path of file
      uploadPath =  sampleFile.path;
+     fs.writeFile(JSON.stringify(req.body),'admitcard',function(){
+        ag.admit();
+     })
     
+    // res.sendFile()
 
 })
 
 //////////////////////////////////////////////////////////////////////////////////
 
-ag.admit();
+
 
 //Server running
 app.listen(PORT , function() {
