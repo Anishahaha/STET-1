@@ -13,16 +13,20 @@ class RegisterForm extends React.Component
 		return(
 		
 		<div className="tc">
-			<nav className="dt w-100 border-box pa3 ph5-ns">
-				<a href="" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Register</a>
-				<a href="" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Login</a>
-				<a href="" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Results</a>
-			</nav>
 			<hr/>
+
+			<h1>Register</h1>
 			<form action="" method="">
 				<div className="ma2"><label>Candidate's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure"/><br/></div>
 				<div className="ma2"><label>Mother's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure"/><br/></div>
 				<div className="ma2"><label>Father's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure"/><br/></div>
+
+				<div className="ma2">
+					<label><strong>Upload passport size photo</strong></label>
+					<input type="file" name="fileToUpload" id="fileToUpload"/>
+				<br/>
+				</div>
+
 				<div className="ma2"><label>Employment Status: </label>
 					 <select>
 					  <option value="employed">employed</option>
@@ -151,13 +155,13 @@ class RegisterForm extends React.Component
 
 				<div className="ma2 tc">				
 				<label for="password" class="f6 b dib mb2">Create Password:</label>
-			    <input class="input-reset ba b--black-20 pa2 mb2 dib w-10" type="password" id="password" aria-describedby="password-desc"/>
+			    <input class="input-reset ba b--black-20 pa2 mb2 dib" type="password" id="password" aria-describedby="password-desc"/>
 			    </div>
 
 
 				<div className="ma2">				
 			    <label for="password" class="f6 b dib mb2">Confirm Password :</label>
-			    <input class="input-reset ba b--black-20 pa2 mb2 dib w-10" type="password" id="password" aria-describedby="password-desc"/>
+			    <input class="input-reset ba b--black-20 pa2 mb2 dib" type="password" id="password" aria-describedby="password-desc"/>
 				</div>
 
 				<div className="ma2">				

@@ -8,8 +8,17 @@ class App extends Component {
   render() {
 
       return (
-          <div>
-            <RegisterForm/>
+
+          <div className="container">
+                <nav className="dt w-100 border-box pa3 ph5-ns">
+                  <a href="" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Register</a>
+                  <a href="" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Login</a>
+                  <a href="" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Results</a>
+                </nav>
+            <div className="row">
+                <div className="col-md-6"><RegisterForm/></div>
+                <div className="col-md-6"><LoginForm/></div>
+            </div>
           </div>
         );
   }
