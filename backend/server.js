@@ -34,12 +34,17 @@ app.post('/', upload.single('sampleFile'), function (req, res, next){
 
      })
     
+	 console.log("hiii")
 
 
 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+//<<<<<<< HEAD
+////ag.admit();
+//====/===
+///
+//>>>>>>> 678befdbb376dbf954bfc788022ec22d79d0f3b2
 
 //Server running
 app.listen(PORT , function() {
