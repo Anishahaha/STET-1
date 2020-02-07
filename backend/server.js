@@ -20,6 +20,7 @@ app.post('/', upload.single('sampleFile'), function (req, res, next){
 
     if (!req.file || Object.keys(req.file).length === 0) {
         console.log("No File Uploaded")
+        
       }
     // console.log('req.file >>>', req.file); // eslint-disable-line
     // //file fetched from input(image)
