@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'tachyons';
 import axios from 'axios';
+import './Register.css';
 
 
 class RegisterForm extends React.Component
@@ -80,8 +81,9 @@ class RegisterForm extends React.Component
 		<div className="tc">
 			<hr/>
 
+			
+			<article className="mw8 center bg-white tc br3 shadow-3  pa3 pa4-ns mv3 ba b--blue">
 			<h1>Register</h1>
-			<article className="mw8 center bg-white tc br3 shadow-3 pa3 pa4-ns mv3 ba b--blue">
 			<form onSubmit={ this.handleSubmit }>
 				<div className="ma2"><label>Candidate's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeCandidateName}/><br/></div>
 				<div className="ma2"><label>Mother's Name: </label><input type="text" className="ba b--black pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeMotherName}/><br/></div>
@@ -209,7 +211,7 @@ class RegisterForm extends React.Component
 				</div>
 
 				<div className="ma2">				
-				<label>Status Of the qualifying exam:</label>
+				<label>Are you eligible for any relaxation:</label>
 				<input placeholder="Any relaxation can be mentioned here." className="pa2 input-reset ba bg-transparent w-100 measure" onChange={this.onChangeRelaxation}></input>
 				<br/>
 				</div>

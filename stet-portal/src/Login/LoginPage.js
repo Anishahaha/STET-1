@@ -34,9 +34,7 @@ class LoginForm extends React.Component
 	{
 		return (
 
-				<article className="mw8 center  tc  shadow-3 bg-white br3 pa3 pa4-ns mv3 ba b--blue">
-				<hr/>
-						<h2>Login</h2>
+				<article className="mw8 center  tc  shadow-3 bg-white br3 pa3 pa4-ns mv3 ba b--blue">						<h1>Login</h1>
 						<label className="tc ma2">Enter Username</label>
 						<div><input type="text" onChange={this.onUsernameChange}/></div>
 						<label className="tc ma2">Enter Password</label>
