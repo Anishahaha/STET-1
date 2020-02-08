@@ -1,6 +1,5 @@
 const pdfTemplate = require('pdf-template');
 const fs = require('fs');
-const db = require('db');
 const abc = fs.readFileSync('admitcard');
 
 
@@ -40,7 +39,6 @@ console.log(kkk)
           })
         
 
-      //push the json object to database
-          db.updateDb();
+      
      }
  }
