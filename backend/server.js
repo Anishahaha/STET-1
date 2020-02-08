@@ -21,6 +21,34 @@ app.set("env", NODE_ENV);
 app.use(cors());
 app.use(bodyParser());
 //////////////////////////////////////////////////////////////////////////////////
+app.post('/dat', upload.single('sampleFile'), function (req, res, next){
+
+    if (!req.file || Object.keys(req.file).length === 0) {
+        console.log(req.body);
+            var dataObj = req.body;
+
+            if(dataObj.rtype == "login")
+            {
+                console.log("LOGIN REQUEST");
+            }
+            else
+            {
+                console.log("REGISTER REQUEST")
+            }
+      }
+    // console.log('req.file >>>', req.file); // eslint-disable-line
+    // //file fetched from input(image)
+    //  sampleFile = req.file
+    // //path of file
+    //  uploadPath =  sampleFile.path;
+    //  console.log("hiiiiiiiiiiiiii")
+    //  fs.writeFile(JSON.stringify(req.body),'admitcard',function(){
+    //    // ag.admit();
+    //         // send a html file saying registration succesful.
+
+     })
+    
+	 console.log("hiii")
 app.post("/dat", upload.single("sampleFile"), function(req, res, next) {
   if (!req.file || Object.keys(req.file).length === 0) {
     console.log("lelmao");
