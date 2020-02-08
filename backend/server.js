@@ -6,7 +6,7 @@ const multer = require("multer");
 const pdfTemplate = require("pdf-template");
 var bodyParser = require("body-parser");
 var cors = require("cors");
-var db = require("./db")
+
 //const ag = require('./admitcard');
 app.use(express.static(__dirname));
 
@@ -21,48 +21,23 @@ app.set("env", NODE_ENV);
 app.use(cors());
 app.use(bodyParser());
 //////////////////////////////////////////////////////////////////////////////////
-app.post('/dat', upload.single('sampleFile'), function (req, res, next){
 
-    if (!req.file || Object.keys(req.file).length === 0) {
-        console.log(req.body);
-            var dataObj = req.body;
-
-            if(dataObj.rtype == "login")
-            {
-                console.log("LOGIN REQUEST");
-            }
-            else
-            {
-                console.log("REGISTER REQUEST")
-            }
-      }
-    // console.log('req.file >>>', req.file); // eslint-disable-line
-    // //file fetched from input(image)
-    //  sampleFile = req.file
-    // //path of file
-    //  uploadPath =  sampleFile.path;
-    //  console.log("hiiiiiiiiiiiiii")
-    //  fs.writeFile(JSON.stringify(req.body),'admitcard',function(){
-    //    // ag.admit();
-    //         // send a html file saying registration succesful.
-
-     })
-    
-	 console.log("hiii")
 app.post("/dat", upload.single("sampleFile"), function(req, res, next) {
-  if (!req.file || Object.keys(req.file).length === 0) {
+  if (!req.body.cfile || Object.keys(req.body.cfile).length === 0) {
     console.log("lelmao");
     res.send("please upload a file");
    
   }
   else{
     console.log(req.body);
-    
-    fs.writeFile("carddetails", JSON.stringify(req.body), function(err) {
+    var pp = JSON.stringify(req.body)
+    console.log("jsjsjsj")
+    fs.writeFile('carddetails', pp, function(err) {
         if(err) {
             return console.log(err);
         }
-        db.dbf()
+        //db.dbf();
+        const db = require("./db")
         console.log("File saved successfully!");
     });
   }
