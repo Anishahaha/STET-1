@@ -6,7 +6,7 @@ const multer = require("multer");
 const pdfTemplate = require("pdf-template");
 var bodyParser = require("body-parser");
 var cors = require("cors");
-var db = require("./db")
+var db = require("./db");
 //const ag = require('./admitcard');
 app.use(express.static(__dirname));
 
@@ -21,49 +21,22 @@ app.set("env", NODE_ENV);
 app.use(cors());
 app.use(bodyParser());
 //////////////////////////////////////////////////////////////////////////////////
-app.post('/dat', upload.single('sampleFile'), function (req, res, next){
 
-    if (!req.file || Object.keys(req.file).length === 0) {
-        console.log(req.body);
-            var dataObj = req.body;
-
-            if(dataObj.rtype == "login")
-            {
-                console.log("LOGIN REQUEST");
-            }
-            else
-            {
-                console.log("REGISTER REQUEST")
-            }
-      }
-    // console.log('req.file >>>', req.file); // eslint-disable-line
-    // //file fetched from input(image)
-    //  sampleFile = req.file
-    // //path of file
-    //  uploadPath =  sampleFile.path;
-    //  console.log("hiiiiiiiiiiiiii")
-    //  fs.writeFile(JSON.stringify(req.body),'admitcard',function(){
-    //    // ag.admit();
-    //         // send a html file saying registration succesful.
-
-     })
-    
-	 console.log("hiii")
+console.log("hiii");
 app.post("/dat", upload.single("sampleFile"), function(req, res, next) {
-  if (!req.file || Object.keys(req.file).length === 0) {
+  if (!req.body.cfile || Object.keys(req.body.cfile).length === 0) {
     console.log("lelmao");
+    console.log(JSON.stringify(req.body));
     res.send("please upload a file");
-   
-  }
-  else{
-    console.log(req.body);
-    
+  } else {
+    console.log(JSON.stringify(req.body));
+
     fs.writeFile("carddetails", JSON.stringify(req.body), function(err) {
-        if(err) {
-            return console.log(err);
-        }
-        db.dbf()
-        console.log("File saved successfully!");
+      if (err) {
+        return console.log(err);
+      }
+      db.dbf();
+      console.log("File saved successfully!");
     });
   }
   // console.log('req.file >>>', req.file); // eslint-disable-line
