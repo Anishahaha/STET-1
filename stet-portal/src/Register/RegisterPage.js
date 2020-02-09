@@ -234,7 +234,7 @@ class RegisterForm extends React.Component
 				<br/>
 
 				<div className="ma2">				
-				<button type="submit" >Submit</button>
+				<button type="submit" ><a href={'./successfulRegister.html'}>Submit </a></button>
 				</div>
 				<br/>
 				</div>

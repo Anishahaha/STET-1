@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="container">
         <img
-          src={require("/home/axai/STET/stet-portal/src/unnamed.jpg")}
+          src={require("./unnamed.jpg")}
           width="100px"
           height="100px"
         />
