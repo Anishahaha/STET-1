@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-
+import ResultsPage from '../Results/ResultsPage.js';
+import usersList from './usersList.js';
 
 class LoginForm extends React.Component
 {
@@ -11,8 +12,8 @@ class LoginForm extends React.Component
 		this.state = {
 			rtype: '',
 			password: '',
-			username: ''
-
+			username: '',
+			message:''
 		};
 	}
 	onPasswordChange = (event) => 
@@ -25,11 +26,32 @@ class LoginForm extends React.Component
 	}
 	onSubmit = (event) => {
 		// code for things to do on submit.
-		event.preventDefault();
-		this.setState({rtype: 'login'});
-		//let newObj = Object.assign({},this.state);
-		axios.post('http://localhost:8000/dat',this.state).then(response => {console.log(response.data);});
+
+		if(this.state.username in usersList){
+
+				if(this.state.password === String(usersList[this.state.username]))
+				{
+					this.setState({message: 'Authentication Sucessful!'})
+					event.preventDefault();
+					this.setState({rtype: 'login'});
+					//let newObj = Object.assign({},this.state);
+					axios.post('http://localhost:8000/dat',this.state).then(response => {console.log(response.data);});
+
+					// //the below statement is just a test.
+					ReactDOM.render(<ResultsPage result={ {name:'saikiran',rollno:'123455',rank:1} } />, document.getElementById('root'));
+				}
+				else
+				{
+					console.log(this.state.password,usersList[this.state.username]);
+					this.setState({message:'Invalid Password'});
+				}
+		}else
+		{
+			this.setState({message:'Invalid Username'});
+		}
 	}
+
+		
 	render()
 	{
 		return (
@@ -39,6 +61,7 @@ class LoginForm extends React.Component
 						<div><input type="text" onChange={this.onUsernameChange}/></div>
 						<label className="tc ma2">Enter Password</label>
 						<div><input type="password" onChange={this.onPasswordChange}/></div>
+						<p className="blue">{this.state.message}</p>
 						<button onClick={this.onSubmit} className="ma2">Login</button>
 				<hr/>
 				</article>
