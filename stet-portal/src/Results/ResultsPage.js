@@ -23,13 +23,12 @@ class ResultsPage extends React.Component
 	{
 		return (
 
-				<div>
 				<div className="tc bg-light-blue">
+				<article className="mw8 center bg-white tc br3 shadow-3  pa3 pa4-ns mv3 ba b--blue">
 					<h4>Download the admit card here</h4>
 					<br/>
 					<button onClick={this.handleDownload}>download</button>
-				</div>
-				
+				</article>
 				</div>
 			);
 	}
