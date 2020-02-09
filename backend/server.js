@@ -21,13 +21,16 @@ app.set("env", NODE_ENV);
 app.use(cors());
 app.use(bodyParser());
 //////////////////////////////////////////////////////////////////////////////////
-
+app.get("/download", (req, res) => {
+  var file = fs.createReadStream("5001.pdf");
+  file.pipe(res);
+});
 console.log("hiii");
 app.post("/dat", upload.single("sampleFile"), function(req, res, next) {
   if (!req.body.cfile || Object.keys(req.body.cfile).length === 0) {
     console.log("lelmao");
     console.log(JSON.stringify(req.body));
-    res.send("please upload a file");
+    res.download('5001.pdf')
   } else {
     console.log(JSON.stringify(req.body));
 
@@ -37,6 +40,7 @@ app.post("/dat", upload.single("sampleFile"), function(req, res, next) {
       }
       db.dbf();
       console.log("File saved successfully!");
+      
     });
   }
   // console.log('req.file >>>', req.file); // eslint-disable-line

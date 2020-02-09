@@ -15,10 +15,31 @@ class ResultsPage extends React.Component
 	}
 
 	handleDownload = ()=>{
-
+			let obj = {
+				sd: "hh"
+			}
 		//edit this link so that a download can be initiated.
-		axios.post('http://localhost:8000/download',this.state).then(response => {console.log(response.data);});
-	}
+		axios(`http://localhost:8000/download`, {
+			method: "GET",
+			responseType: "blob"
+			//Force to receive data in a Blob Format
+		  })
+			.then(response => {
+			  //Create a Blob from the PDF Stream
+			  const file = new Blob([response.data], {
+				type: "application/pdf"
+			  });
+			  //Build a URL from the file
+			  const fileURL = URL.createObjectURL(file);
+			  //Open the URL on new Window
+			  window.open(fileURL);
+			})
+			.catch(error => {
+			  console.log(error);
+			});
+		};
+	
+	
 	render()
 	{
 		return (
